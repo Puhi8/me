@@ -1,0 +1,32 @@
+{
+  "name": "me",
+  "private": true,
+  "version": "1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run moveImg && vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist -r https://github.com/Puhi8/me",
+    "img": "node -e \"const fs=require('fs');const path=require('path');const fsp=fs.promises;const root=process.cwd();const src=path.join(root,'img');const dest=path.join(root,'public','img');(async()=>{if(!fs.existsSync(src)){console.log('No img directory to move.');return;}async function move(fromDir,toDir){await fsp.mkdir(toDir,{recursive:true});const entries=await fsp.readdir(fromDir,{withFileTypes:true});for(const entry of entries){const from=path.join(fromDir,entry.name);const to=path.join(toDir,entry.name);if(entry.isDirectory()){await move(from,to);await fsp.rmdir(from).catch(()=>{});}else if(entry.isFile()){await fsp.mkdir(toDir,{recursive:true});await fsp.rename(from,to);}}}await fsp.mkdir(dest,{recursive:true});await move(src,dest);await fsp.rmdir(src).catch(()=>{});console.log('Images moved to public/img');})().catch(err=>{console.error('Failed to move images:',err.message);process.exit(1);});\"",
+    "profile": "node -e \"const fs=require('fs');const path=require('path');const fsp=fs.promises;const root=process.cwd();const src=path.join(root,'profile.png');const destDir=path.join(root,'public','img');const dest=path.join(destDir,'profile.png');(async()=>{if(!fs.existsSync(src)){console.log('No profile.png found at project root.');return;}await fsp.mkdir(destDir,{recursive:true});await fsp.rename(src,dest);console.log('profile.png moved to public/img/profile.png');})().catch(err=>{console.error('Failed to move profile:',err.message);process.exit(1);});\"",
+    "moveImg": "npm run img && npm run profile"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-markdown": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "globals": "^16.5.0",
+    "vite": "npm:rolldown-vite@7.2.5",
+    "gh-pages": "^6.3.0"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.2.5"
+  },
+  "homepage": "https://Puhi8.github.io/me"
+}

@@ -1,0 +1,64 @@
+{
+  "projects": [
+    {
+      "name": "File Tree Viewer",
+      "shortDescription": "Rust CLI that prints a directory tree with optional Markdown header outlines.",
+      "longDescription": "### What it is\nA Rust CLI that renders a directory tree while respecting gitignore rules, with an optional argument to print Markdown headings.\n\n### How\n- Uses `ignore` for gitignore-style filtering and skips `.git`.\n- CLI flags for start path, depth, gitignore file, and notes mode.\n- Great for quick look of the folder structure in the terminal.",
+      "category": "Tools",
+      "links": {
+        "github": "https://github.com/Puhi8/fileTree.git"
+      },
+      "importance": 4
+    },
+    {
+      "name": "Keyboard Shortcut Map",
+      "shortDescription": "App to document key actions across keyboard layouts and layers",
+      "longDescription": "### Overview\nA React app to map what each key on the keyboard does across layouts and layers. Notes persist in localStorage and can be imported/exported for backup.\n\n### Highlights\n- Pick a layout (full, TKL, 60%, etc.), select a layer, click a key, and type notes.\n- Different profiles for different activities.\n- Import/Export JSON from the header; build as a PWA/offline bundle for download-and-use.",
+      "category": "Productivity",
+      "importance": 6,
+      "links": {
+        "github": "https://github.com/Puhi8/keyboardShortcutNotes",
+        "production": "https://puhi8.github.io/keyboardShortcutNotes"
+      }
+    },
+    {
+      "name": "LabToHub",
+      "shortDescription": "CLI that publishes GitLab main to GitHub as a single squashed commit.",
+      "longDescription": "### Description \nThe tool I use to manage multiple git destinations (Gitlab (personal), Gitlab (public)).\r\n\rPublishes GitLab `main` to GitHub with a single squashed commit, keeping GitLab history untouched.\r\n\r\n### Usage\r\n- Run `labtohub -m \\\"Message\\\"` or follow prompts.\r\n- Fast-forwards from `origin/main`, then squashes changes or force-publishes if histories are unrelated/empty.\r\n\r\n### Requirements\r\n- Remotes: `origin` (GitLab) and `github` (GitHub).",
+      "category": "DevOps",
+      "importance": 4,
+      "links": {
+        "github": "https://github.com/Puhi8/labtohub"
+      }
+    },
+    {
+      "name": "Project Statistics",
+      "shortDescription": "Rust, line counter with gitignore support and per-language breakdown.",
+      "longDescription": "### Overview\nA Rust-based, line counter that tallies lines per language with filters and gitignore support.\n\n### Features\n- Uses `ignore` for gitignore-aware walking; optional custom gitignore.\n- Separates known languages from \"Other\" (with optional detailed breakdown).",
+      "category": "Tools",
+      "importance": 2,
+      "links": {
+        "github": "https://github.com/Puhi8/Project-Statistics"
+      }
+    }
+  ],
+  "skills": [
+    { "name": "JavaScript" },
+    { "name": "Nodejs" },
+    { "name": "React" },
+    { "name": "HTML" },
+    { "name": "CSS" },
+    { "name": "SQL" },
+    { "name": "Rust" },
+    { "name": "Docker" }
+  ],
+  "connections": [
+    { "label": "GitHub", "url": "https://github.com/Puhi8" },
+    { "label": "Email", "url": "kruhek000@gmail.com" }
+  ],
+  "badges": [
+    { "standOut": true, "text": "Full-stack" },
+    { "standOut": false, "text": "Home-labing" },
+    { "standOut": false, "text": "Student" }
+  ]
+}
