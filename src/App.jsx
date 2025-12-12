@@ -6,9 +6,16 @@ const MYDATA_JSON_URL = "https://puhi8.github.io/me/myData.json"
 const BASE = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '') || ''
 
 function withBase(path) {
-   const clean = String(path || '').replace(/^\/+/, '')
+   const str = String(path || '')
+   if (str.startsWith('#')) return `${BASE}${str}`
+   const clean = str.replace(/^\/+/, '')
    return `${BASE}/${clean}`
 }
+
+const PROJECTS_HASH = '#projects'
+const HOME_PATH = withBase('/')
+const PROJECTS_PATH = withBase(PROJECTS_HASH)
+const getPageFromLocation = () => (window.location.hash === PROJECTS_HASH ? 'projects' : 'home')
 
 function toIconPath(label) {
    const slug = String(label || '')
@@ -184,21 +191,23 @@ export default function App() {
    const [badges, setBadges] = useState([])
    const [loading, setLoading] = useState(true)
    const [error, setError] = useState('')
-   const [page, setPage] = useState(() => (window.location.pathname === withBase('#projects') ? 'projects' : 'home'))
+   const [page, setPage] = useState(getPageFromLocation)
    const [selectedCategory, setSelectedCategory] = useState('all')
    const [search, setSearch] = useState('')
 
    useEffect(() => {
-      const handlePop = () => {
-         setPage(window.location.pathname === withBase("#projects") ? 'projects' : 'home')
+      const handleRouteChange = () => setPage(getPageFromLocation())
+      window.addEventListener('popstate', handleRouteChange)
+      window.addEventListener('hashchange', handleRouteChange)
+      return () => {
+         window.removeEventListener('popstate', handleRouteChange)
+         window.removeEventListener('hashchange', handleRouteChange)
       }
-      window.addEventListener('popstate', handlePop)
-      return () => window.removeEventListener('popstate', handlePop)
    }, [])
 
    const navigate = (path) => {
       window.history.pushState({}, '', path)
-      setPage(path === withBase("#projects") ? 'projects' : 'home')
+      setPage(getPageFromLocation())
    }
 
    useEffect(() => {
@@ -265,7 +274,7 @@ export default function App() {
          <div className="bg-texture" />
          <div className="content">
             <div className="top-bar">
-               <button className="brand" type="button" onClick={() => navigate('/')}>Puhi8 - Personal Site</button>
+               <button className="brand" type="button" onClick={() => navigate(HOME_PATH)}>Puhi8 - Personal Site</button>
                <button
                   className="theme-toggle"
                   type="button"
@@ -349,7 +358,7 @@ export default function App() {
                            <h2>Featured Projects</h2>
                         </div>
                         <div className="actions">
-                           <button className="pill-button" type="button" onClick={() => navigate(withBase('#projects'))}>
+                           <button className="pill-button" type="button" onClick={() => navigate(PROJECTS_PATH)}>
                               All projects
                            </button>
                         </div>
@@ -379,7 +388,7 @@ export default function App() {
                         <h2>Projects ({filteredProjects.length})</h2>
                      </div>
                      <div className="actions">
-                        <button className="pill-button" type="button" onClick={() => navigate(withBase('/'))}>Back home</button>
+                        <button className="pill-button" type="button" onClick={() => navigate(HOME_PATH)}>Back home</button>
                      </div>
                   </div>
 
