@@ -54,7 +54,7 @@
   ],
   "connections": [
     { "label": "GitHub", "url": "https://github.com/Puhi8" },
-    { "label": "Email", "url": "kruhek000@gmail.com" }
+    { "label": "Email", "url": "mailto:kruhek000@gmail.com" }
   ],
   "badges": [
     { "standOut": true, "text": "Full-stack" },
