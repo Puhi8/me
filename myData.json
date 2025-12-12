@@ -13,7 +13,7 @@
     {
       "name": "Keyboard Shortcut Map",
       "shortDescription": "App to document key actions across keyboard layouts and layers",
-      "longDescription": "### Overview\nA React app to map what each key on the keyboard does across layouts and layers. Notes persist in localStorage and can be imported/exported for backup.\n\n### Highlights\n- Pick a layout (full, TKL, 60%, etc.), select a layer, click a key, and type notes.\n- Different profiles for different activities.\n- Import/Export JSON from the header; build as a PWA/offline bundle for download-and-use.",
+      "longDescription": "### Overview\nA React PWA to map what each key on the keyboard does across layouts and layers. Notes persist in localStorage and can be imported/exported for backup.\n\n### Highlights\n- Pick a layout (full, TKL, 60%, etc.), select a layer, click a key, and type notes.\n- Different profiles for different activities.\n- Import/Export JSON from the header; build as a PWA/offline bundle for download-and-use.",
       "category": "Productivity",
       "importance": 6,
       "links": {
@@ -26,7 +26,7 @@
       "shortDescription": "CLI that publishes GitLab main to GitHub as a single squashed commit.",
       "longDescription": "### Description \nThe tool I use to manage multiple git destinations (Gitlab (personal), Gitlab (public)).\r\n\rPublishes GitLab `main` to GitHub with a single squashed commit, keeping GitLab history untouched.\r\n\r\n### Usage\r\n- Run `labtohub -m \\\"Message\\\"` or follow prompts.\r\n- Fast-forwards from `origin/main`, then squashes changes or force-publishes if histories are unrelated/empty.\r\n\r\n### Requirements\r\n- Remotes: `origin` (GitLab) and `github` (GitHub).",
       "category": "DevOps",
-      "importance": 4,
+      "importance": 5,
       "links": {
         "github": "https://github.com/Puhi8/labtohub"
       }
