@@ -6,9 +6,7 @@
       "longDescription": "### What it is\nA Rust CLI that renders a directory tree while respecting gitignore rules, with an optional argument to print Markdown headings.\n\n### How\n- Uses `ignore` for gitignore-style filtering and skips `.git`.\n- CLI flags for start path, depth, gitignore file, and notes mode.\n- Great for quick look of the folder structure in the terminal.",
       "category": "Tools",
       "links": {
-        "github": "https://github.com/Puhi8",
-        "production": "https://puhi8.github.com/filetree",
-        "other": "https://filetrr.my.domain"
+        "github": "https://github.com/Puhi8/fileTree.git"
       },
       "importance": 4
     },
@@ -40,7 +38,7 @@
       "category": "Tools",
       "importance": 2,
       "links": {
-        "github": "https://github.com/Puhi8/projectstatistics"
+        "github": "https://github.com/Puhi8/Project-Statistics"
       }
     }
   ],
