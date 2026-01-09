@@ -11,6 +11,16 @@
       "importance": 4
     },
     {
+      "name": "File Backup checker",
+      "shortDescription": "Go CLI compares 2 dirs and finds differences in them by mode specified.",
+      "longDescription": "### What it is\r\nGo CLI to diff two dirs by names, bytes, metadata, or tree structure, emitting JSON-friendly results.\r\n\r\n### How\r\n1. Crawls directories to a configurable depth\r\n2. Compares by mode: \r\n   - name (flat)\r\n   - metadata (ExifTool for extracting)\r\n   - file tree\r\n   - binary contains \r\n3. Logs the difference (OnlyLeft / OnlyRight / Difference)",
+      "category": "Tools",
+      "links": {
+        "github": "https://github.com/Puhi8/FileBackupChecker"
+      },
+      "importance": 5
+    },
+    {
       "name": "Keyboard Shortcut Map",
       "shortDescription": "App to document key actions across keyboard layouts and layers",
       "longDescription": "### Overview\nA React PWA to map what each key on the keyboard does across layouts and layers. Notes persist in localStorage and can be imported/exported for backup.\n\n### Highlights\n- Pick a layout (full, TKL, 60%, etc.), select a layer, click a key, and type notes.\n- Different profiles for different activities.\n- Import/Export JSON from the header; build as a PWA/offline bundle for download-and-use.",
@@ -50,6 +60,7 @@
     { "name": "CSS" },
     { "name": "SQL" },
     { "name": "Rust" },
+    { "name": "Go" },
     { "name": "Docker" }
   ],
   "connections": [
