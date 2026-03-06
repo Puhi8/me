@@ -80,6 +80,7 @@
   "badges": [
     { "standOut": true, "text": "Full-stack" },
     { "standOut": false, "text": "Home-labing" },
+    { "standOut": false, "text": "Linux" },
     { "standOut": false, "text": "Student" }
   ]
 }
