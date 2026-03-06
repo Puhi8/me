@@ -11,6 +11,16 @@
       "importance": 4
     },
     {
+      "name": "dockernet",
+      "shortDescription": "Go CLI for easier management of docker containers ips.",
+      "longDescription": "### Overview\nA Go CLI used of managing docker (+docker-compose) containers ips and there networks. Checks running docker containers + compose files (running on not)\n\n### Key features\n- configurable sections (in the config file)\n- `ps` - list all containers and their IP entries\n- `check` - detect conflicts in static IP\n- `nextFree` - Show next free addresses",
+      "category": "Tools",
+      "links": {
+        "github": "https://github.com/Puhi8/dockernet"
+      },
+      "importance": 7
+    },
+    {
       "name": "File Backup checker",
       "shortDescription": "Go CLI compares 2 dirs and finds differences in them by mode specified.",
       "longDescription": "### What it is\r\nGo CLI to diff two dirs by names, bytes, metadata, or tree structure, emitting JSON-friendly results.\r\n\r\n### How\r\n1. Crawls directories to a configurable depth\r\n2. Compares by mode: \r\n   - name (flat)\r\n   - metadata (ExifTool for extracting)\r\n   - file tree\r\n   - binary contains \r\n3. Logs the difference (OnlyLeft / OnlyRight / Difference)",
@@ -70,6 +80,7 @@
   "badges": [
     { "standOut": true, "text": "Full-stack" },
     { "standOut": false, "text": "Home-labing" },
+    { "standOut": false, "text": "Linux" },
     { "standOut": false, "text": "Student" }
   ]
 }
