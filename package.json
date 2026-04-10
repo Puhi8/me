@@ -5,12 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run moveImg && vite build",
+    "build": "npm run img && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "deploy": "npm run build && gh-pages -d dist -r https://github.com/Puhi8/me",
-    "img": "bash ./scripts/copy-img.sh",
-    "moveImg": "npm run img && npm run profile"
+    "img": "bash ./scripts/copy-img.sh"
   },
   "dependencies": {
     "react": "^19.2.0",
