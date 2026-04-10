@@ -11,6 +11,17 @@
       "importance": 4
     },
     {
+      "name": "Daily notes",
+      "shortDescription": "My daily life tracker / journaling app",
+      "longDescription": "### Overview\r\nAn android app for journal and keep track of your daily goals. \r\n\r\n### Features\r\n- Daily journaling (with a customizable template) (.md style)\r\n- graph to keep track of your progress\r\n- extreme 0-trust system (almost every action requires biometric)",
+      "category": "Life",
+      "links": {
+        "github": "https://github.com/Puhi8/dailyNotes",
+        "production": "https://puhi8.github.io/dailyNotes"
+      },
+      "importance": 6
+    },
+    {
       "name": "dockernet",
       "shortDescription": "Go CLI for easier management of docker containers ips.",
       "longDescription": "### Overview\nA Go CLI used of managing docker (+docker-compose) containers ips and there networks. Checks running docker containers + compose files (running on not)\n\n### Key features\n- configurable sections (in the config file)\n- `ps` - list all containers and their IP entries\n- `check` - detect conflicts in static IP\n- `nextFree` - Show next free addresses",
@@ -64,14 +75,14 @@
   ],
   "skills": [
     { "name": "JavaScript" },
-    { "name": "Nodejs" },
+    { "name": "TypeScript" },
     { "name": "React" },
     { "name": "HTML" },
     { "name": "CSS" },
     { "name": "SQL" },
-    { "name": "Rust" },
     { "name": "Go" },
-    { "name": "Docker" }
+    { "name": "Docker" },
+    { "name": "Bash" }
   ],
   "connections": [
     { "label": "GitHub", "url": "https://github.com/Puhi8" },

@@ -27,3 +27,4 @@ test.md
 *.njsproj
 *.sln
 *.sw?
+.codex
