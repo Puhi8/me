@@ -22,6 +22,16 @@
       "importance": 6
     },
     {
+      "name": "folderMaker",
+      "shortDescription": "Go CLI for making structured dirs based on a config json.",
+      "longDescription": "## Overview\r\nAn app to that creates a dir structure based on a given json config. \r\n\r\n## Features\r\n- Full constomisable json for personal dir making\r\n- Suporting flags for simpler creation \r\n- Compileng / extracting from an existing dir",
+      "category": "Tools",
+      "links": {
+        "github": "https://github.com/Puhi8/folderMaker"
+      },
+      "importance": 5
+    },
+    {
       "name": "dockernet",
       "shortDescription": "Go CLI for easier management of docker containers ips.",
       "longDescription": "### Overview\nA Go CLI used of managing docker (+docker-compose) containers ips and there networks. Checks running docker containers + compose files (running on not)\n\n### Key features\n- configurable sections (in the config file)\n- `ps` - list all containers and their IP entries\n- `check` - detect conflicts in static IP\n- `nextFree` - Show next free addresses",
