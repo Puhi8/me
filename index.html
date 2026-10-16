@@ -2,13 +2,108 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/me/profile.png" />
+    <link rel="icon" type="image/webp" href="/me/profile-icon.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>It is I. Puhi8</title>
-    <script type="module" crossorigin src="/me/assets/index-80diiV12.js"></script>
-    <link rel="stylesheet" crossorigin href="/me/assets/index-vRRF0WtS.css">
+    <script type="module">var e=`/me/assets/bash-BltR33Z8.svg`,t=`/me/assets/css-BYVzzkvE.svg`,n=`/me/assets/docker-D4Ze9YHn.svg`,r=`/me/assets/go-DBlHqft3.svg`,i=`/me/assets/html-DzL8y8p7.svg`,a=`/me/assets/javascript-BxUIoaTT.svg`,o=`/me/assets/react-BcN4bW6I.svg`,s=`/me/assets/rust-B1ZWACO6.svg`,c=`/me/assets/select-chevron-DQ5Uzuuo.svg`,l=`/me/assets/sql-B7vNgzcQ.svg`,u=`/me/assets/typescript-B2Tbb0Sz.svg`,d=`/me/assets/x-github-CNRpK5S6.svg`,f=`/me/`,p=`https://puhi8.github.io/me/myData.json`,m={production:`Production`,github:`GitHub`,other:`Other`},h={"./img/bash.svg":e,"./img/css.svg":t,"./img/docker.svg":n,"./img/go.svg":r,"./img/html.svg":i,"./img/javascript.svg":a,"./img/react.svg":o,"./img/rust.svg":s,"./img/select-chevron.svg":c,"./img/sql.svg":l,"./img/typescript.svg":u,"./img/x-github.svg":d},g=e=>document.getElementById(e),_=g(`theme-toggle`),v=g(`category`),y=g(`search`),b=g(`projects`),x=g(`projects-status`),S=g(`featured-status`),C=[],w=e=>typeof e==`object`&&!!e,T=e=>typeof e==`string`?e:void 0,E=(e,t)=>Array.isArray(e)?e.filter(w).map(t).filter(e=>e!==void 0):[];function D(e){let t=T(e.name),n=w(e.links)?e.links:{};if(t)return{name:t,shortDescription:T(e.shortDescription),longDescription:T(e.longDescription),category:T(e.category)||`General`,importance:typeof e.importance==`number`?e.importance:0,links:Object.entries(m).flatMap(([e,t])=>{let r=T(n[e]);return r?[{label:t,url:r}]:[]})}}function O(e){let t=w(e)?e:{};return{projects:E(t.projects,D).sort((e,t)=>t.importance-e.importance),skills:E(t.skills,e=>T(e.name)),connections:E(t.connections,e=>{let t=T(e.label),n=T(e.url);return t&&n?{label:t,url:n,icon:T(e.icon)}:void 0}),badges:E(t.badges,e=>{let t=T(e.text);return t?{text:t,standOut:e.standOut===!0}:void 0})}}async function k(){for(let e of[`${f}myData.json`,p])try{let t=await fetch(e);if(!t.ok)throw Error(`Status ${t.status}`);return O(await t.json())}catch(t){console.warn(`Failed to load ${e}`,t)}throw Error(`Unable to load projects right now.`)}function A(e){let t=e.map(e=>({project:e,weight:e.importance+Math.random()*5})).sort((e,t)=>t.weight-e.weight).map(e=>e.project),n=new Set,r=t.filter(e=>n.has(e.category)?!1:(n.add(e.category),!0));return[...new Set([...r,...t])].slice(0,3)}var j=e=>e.replace(/[&<>"']/g,e=>`&#${e.charCodeAt(0)};`),M=e=>e.split(/(`[^`]+`)/).map((e,t)=>t%2?`<code>${j(e.slice(1,-1))}</code>`:j(e).replace(/\*\*(.+?)\*\*/g,`<strong>$1</strong>`).replace(/\*(.+?)\*/g,`<em>$1</em>`).replace(/\[(.+?)\]\((.+?)\)/g,`<a href="$2" target="_blank" rel="noreferrer">$1</a>`)).join(``);function N(e){let t=``,n=[],r=[],i=()=>{n.length&&(t+=`<p>${M(n.join(` `))}</p>`),n=[]},a=e=>{for(;r.length&&r.at(-1).indent>e;)t+=`</li></${r.pop().tag}>`};for(let o of e.split(/\r?\n/)){let e=o.match(/^(\s*)([-*+]|\d+\.)\s+(.*)$/),s=o.match(/^(#{1,6})\s+(.*)$/);if(!o.trim())i();else if(e){let n=e[1].length,o=e[2].endsWith(`.`)?`ol`:`ul`;i(),a(n),r.at(-1)?.indent===n&&r.at(-1)?.tag!==o&&a(n-1),r.at(-1)?.indent===n?t+=`</li><li>`:(t+=`<${o}><li>`,r.push({tag:o,indent:n})),t+=M(e[3].trim())}else a(-1),s?(i(),t+=`<h${s[1].length}>${M(s[2].trim())}</h${s[1].length}>`):n.push(o.trim())}return i(),a(-1),t}var P=e=>e.toLowerCase().replace(/[^a-z0-9]+/g,`-`).replace(/(^-|-$)/g,``),F=e=>h[`./img/${e}.svg`]??`${f}img/${e}.webp`;function I({label:e,icon:t}){return t?/^https?:\/\//i.test(t)?t:f+t.replace(/^\/+/,``):F(P(e)||`link`)}var L=e=>`<a class="chip" href="${j(e.url)}" target="_blank" rel="noreferrer" aria-label="${j(e.label)}">
+  <span aria-hidden="true" class="connection-icon" style="--connection-icon-mask: url(&quot;${j(I(e))}&quot;)"></span>
+</a>`,R=e=>`<span class="pill ${e.standOut?`accent`:`outline`}">${j(e.text)}</span>`,z=e=>`<div class="skill-chip">
+  <img src="${j(F(e.toLowerCase()))}" alt="${j(e)}" />
+  <span>${j(e)}</span>
+</div>`,B=e=>e.length===0?``:`<div class="link-row">${e.map(e=>`<a class="project-chip" href="${j(e.url)}" target="_blank" rel="noreferrer">${e.label}</a>`).join(``)}</div>`,V=e=>`<div class="project-copy">${N(e.shortDescription||e.longDescription||``)}</div>`,H=e=>`<article class="project-preview">
+  <h3>${j(e.name)}</h3>
+  ${V(e)}
+  ${B(e.links)}
+</article>`,U=e=>`<article class="project-card">
+  <div class="project-header">
+    <h3>${j(e.name)}</h3>
+    <div class="meta-tags"><span class="pill outline">${j(e.category)}</span></div>
+  </div>
+  ${V(e)}
+  <div class="project-options">
+    ${e.longDescription?`<button type="button" class="project-chip" data-toggle aria-expanded="false">Read more</button>`:``}
+    ${B(e.links)}
+  </div>
+  ${e.longDescription?`<div class="details-outer"><div class="project-copy">${N(e.longDescription)}</div></div>`:``}
+</article>`,W=e=>`<option value="${j(e)}">${e===`all`?`All`:j(e)}</option>`;function G(e,t,n=!1){e.textContent=t,e.className=n?`error`:`muted`,e.hidden=!t}function K(e){document.documentElement.dataset.theme=e,_.textContent=e===`dark`?`Light mode`:`Dark mode`,localStorage.setItem(`theme`,e)}function q(){let e=location.hash===`#projects`;g(`home-page`).hidden=e,g(`projects-page`).hidden=!e}function J(e){history.pushState(null,``,e),q()}function Y(){let e=y.value.trim().toLowerCase(),t=C.filter(t=>(v.value===`all`||t.category===v.value)&&[t.name,t.shortDescription,t.longDescription].join(` `).toLowerCase().includes(e));g(`project-count`).textContent=String(t.length),b.innerHTML=t.map(U).join(``),G(x,t.length?``:`No projects match those filters.`)}K(localStorage.getItem(`theme`)===`light`?`light`:`dark`),q(),_.addEventListener(`click`,()=>K(document.documentElement.dataset.theme===`dark`?`light`:`dark`)),g(`home-link`).addEventListener(`click`,()=>J(f)),g(`back-home`).addEventListener(`click`,()=>J(f)),g(`all-projects`).addEventListener(`click`,()=>J(`#projects`)),window.addEventListener(`popstate`,q),v.addEventListener(`change`,Y),y.addEventListener(`input`,Y),b.addEventListener(`click`,e=>{let t=e.target.closest(`[data-toggle]`);if(!t)return;let n=t.closest(`.project-card`).classList.toggle(`open`);t.textContent=n?`Hide details`:`Read more`,t.ariaExpanded=String(n)});try{let e=await k(),t=A(e.projects);C=e.projects,g(`connections`).innerHTML=e.connections.map(L).join(``),g(`badges`).innerHTML=e.badges.map(R).join(``),g(`skills`).innerHTML=e.skills.length?e.skills.map(z).join(``):`<p class="muted">Add skills to myData.json to see them here.</p>`,g(`featured`).innerHTML=t.map(H).join(``),G(S,t.length?``:`Add items to myData.json to surface them here.`),v.innerHTML=[`all`,...new Set(C.map(e=>e.category))].map(W).join(``),Y()}catch(e){let t=e instanceof Error?e.message:`Unable to load projects right now.`;G(S,t,!0),G(x,t,!0)}</script>
+    <style>:root{--lightningcss-light: ;--lightningcss-dark:initial;color-scheme:dark;--accent:#ff7a00;--accent-strong:#ffb169;--bg:var(--lightningcss-light,#f7f7fb)var(--lightningcss-dark,#0d111a);--bg-2:var(--lightningcss-light,#fff)var(--lightningcss-dark,#12182a);--surface:var(--lightningcss-light,#ffffffc7)var(--lightningcss-dark,#ffffff0a);--surface-soft:var(--lightningcss-light,#ffffffb8)var(--lightningcss-dark,#ffffff05);--surface-soft-strong:var(--lightningcss-light,#ffffffd6)var(--lightningcss-dark,#ffffff0a);--text:var(--lightningcss-light,#0f172a)var(--lightningcss-dark,#f8fafc);--muted:var(--lightningcss-light,#475569)var(--lightningcss-dark,#cbd5e1);--border:var(--lightningcss-light,#0f172a1f)var(--lightningcss-dark,#ffffff14);--accent-contrast:var(--lightningcss-light,#1f1300)var(--lightningcss-dark,#0c0c10);--error:var(--lightningcss-light,#b93815)var(--lightningcss-dark,#ff9b73);font-family:Space Grotesk,Inter,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;font-weight:400;line-height:1.6}[data-theme=light]{--lightningcss-light:initial;--lightningcss-dark: ;color-scheme:light}*{box-sizing:border-box}[hidden]{display:none!important}a{color:inherit;text-decoration:none}body{background:radial-gradient(circle at 15% 20%, #ff7a000d, transparent 35%), radial-gradient(circle at 80% 0%, #ff7a0014, transparent 30%), linear-gradient(120deg, var(--bg), var(--bg-2));min-height:100vh;color:var(--text);text-rendering:optimizelegibility;-webkit-font-smoothing:antialiased;margin:0}img{max-width:100%;display:block}button{font-family:inherit}.app-shell{min-height:100vh;padding:32px 18px 72px;position:relative;overflow:hidden}.bg-texture{opacity:.9;pointer-events:none;z-index:0;background:radial-gradient(at 20% 20%,var(--lightningcss-light,#ff7a001a)var(--lightningcss-dark,#6e5a3540),#0000 40%),radial-gradient(at 85% 25%,var(--lightningcss-light,#ffb1692e)var(--lightningcss-dark,#8d672133),#0000 35%),radial-gradient(at 40% 80%,var(--lightningcss-light,#94a3b81f)var(--lightningcss-dark,#5e40091f),#0000 40%),var(--lightningcss-light,#e7e7e7)var(--lightningcss-dark,#0c0c10);position:absolute;inset:0}:is(.content,.hero-card,.project-card,.project-preview,.filter-control){flex-direction:column;display:flex}.content{z-index:1;gap:24px;max-width:1100px;margin:0 auto;position:relative}:is(.top-bar,.section-header,.project-header,.project-options,.connections,.badges,.meta-tags,.link-row,.actions,.filters){flex-wrap:wrap;display:flex}:is(.top-bar,.section-header,.project-header,.project-options){justify-content:space-between}:is(.top-bar,.project-header,.project-options,.meta-tags,.skill-chip){align-items:center}:is(.connections,.badges,.project-header,.project-options,.skill-chip){gap:10px}:is(.meta-tags,.link-row,.actions,.pill){gap:8px}:is(.top-bar,.section-header,.filters){gap:12px}.section-header{align-items:flex-start;margin-bottom:14px}:is(.brand,.theme-toggle,.pill-button,.project-chip){cursor:pointer}:is(.pill,.theme-toggle,.pill-button){border-radius:999px}:is(.pill,.chip,.project-chip){align-items:center;display:inline-flex}:is(.chip,.project-chip){justify-content:center}:is(.chip,.skill-chip){padding:10px 12px}:is(.theme-toggle,.pill-button){padding:10px 14px}:is(.chip,.skill-chip,.project-preview){border-radius:14px}:is(.brand,.eyebrow,.lede,.project-copy,.muted,.filter-control span,.project-chip){color:var(--muted)}.brand{letter-spacing:.08em;text-transform:uppercase;background:0 0;border:none;padding:8px 0;font-size:.85rem}.theme-toggle{background:var(--surface);transition:transform .12s,border-color .12s,color .12s}.card{border:1px solid var(--border);background:linear-gradient(135deg,var(--lightningcss-light,#ffffffe6)var(--lightningcss-dark,#ffffff0a),var(--lightningcss-light,#ffffffbd)var(--lightningcss-dark,#ffffff05));border-radius:20px;padding:24px;box-shadow:0 18px 60px var(--lightningcss-light,#0f172a1f)var(--lightningcss-dark,#00000059)}.hero-card{gap:18px}.identity{grid-template-columns:minmax(120px,160px) 1fr;align-items:center;gap:20px;display:grid}.avatar-wrap{width:100%;max-width:180px;position:relative}.profile-photo{aspect-ratio:1;object-fit:cover;border:4px solid var(--bg);z-index:1;border-radius:18px;width:100%;position:relative;box-shadow:0 15px 40px var(--lightningcss-light,#0f172a29)var(--lightningcss-dark,#00000059)}.glow{filter:blur(22px);z-index:0;background:radial-gradient(circle at 30% 30%,#ff7a0066,#0000 55%);border-radius:16px;position:absolute;inset:12px}.eyebrow{letter-spacing:.12em;text-transform:uppercase;margin:0;font-size:.78rem}h1{margin:6px 0 8px;font-size:clamp(2.2rem,3vw,2.8rem)}h2{margin:6px 0 0;font-size:1.4rem}h3{margin:4px 0 6px;font-size:1.15rem}.lede{margin:0 0 12px}.chip{border:1px solid var(--border);background:var(--surface-soft-strong);color:var(--text);transition:transform .14s,border-color .14s,color .14s,box-shadow .14s}.connection-icon{background-color:var(--text);width:22px;height:22px;-webkit-mask:var(--connection-icon-mask) center / contain no-repeat;-webkit-mask:var(--connection-icon-mask) center / contain no-repeat;mask:var(--connection-icon-mask) center / contain no-repeat;flex-shrink:0;display:block}.pill{letter-spacing:.02em;padding:6px 12px;font-size:.78rem}.pill.accent{background:linear-gradient(90deg, var(--accent), var(--accent-strong));color:var(--accent-contrast);border:none;font-weight:700}.pill-button{background:var(--lightningcss-light,#ffffffad)var(--lightningcss-dark,#ffffff08);transition:border-color .16s,color .16s,transform .16s}.grid{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}:is(.grid,.skill-grid,.project-grid){display:grid}.skill-grid{grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:12px}:is(.theme-toggle,.pill-button,.pill.outline),.filter-control :is(select,input[type=text]){border:1px solid var(--border);color:var(--text)}:is(.skill-chip,.project-card,.project-preview,.project-chip,.filter-control){border:1px solid var(--border);background:var(--surface-soft)}.skill-chip{transition:transform .12s,border-color .12s}.skill-chip img{object-fit:contain;width:28px;height:28px}.skill-chip:hover{border-color:var(--accent);transform:translateY(-2px)}.project-grid{grid-template-columns:1fr;gap:14px}.project-card{border-radius:16px;gap:10px;padding:14px 16px}.project-card>div>h3{color:var(--accent)}.project-preview{padding:12px 14px;transition:all .12s}.project-options{margin-top:6px}.project-copy,.muted{margin:0}.project-chip{letter-spacing:.01em;border-radius:10px;height:38px;padding:6px 10px;font-size:15px;font-weight:500;transition:border-color .14s,color .14s,transform .14s,box-shadow .14s}.project-copy p{margin:.25rem 0}.details-outer{opacity:0;grid-template-rows:0fr;transition:grid-template-rows .32s,opacity .22s,margin-top .22s;display:grid}.details-outer>.project-copy{overflow:hidden}.details-outer>.project-copy>:last-child{margin-bottom:0}.project-card.open .details-outer{opacity:1;grid-template-rows:1fr;margin-top:8px}.project-preview,.filter-control{gap:6px}.filter-control{border-radius:12px;min-width:160px;padding:10px 12px}.filter-control span{font-size:.85rem}.filter-control :is(select,input[type=text]){background:var(--surface);border-radius:10px;padding:8px 10px;font-family:inherit}.filter-control select{appearance:none;background-color:var(--surface);background-image:linear-gradient(135deg,var(--lightningcss-light,#fffffff5)var(--lightningcss-dark,#ffffff0d),var(--lightningcss-light,#f8fafcd6)var(--lightningcss-dark,#ffffff05)),url(/me/assets/select-chevron-DQ5Uzuuo.svg);background-position:0 0,right 12px center;background-repeat:no-repeat,no-repeat;background-size:auto,14px 14px;padding-right:40px;transition:border-color .14s,box-shadow .14s,background-color .14s;box-shadow:inset 0 1px var(--lightningcss-light,#fffffff2)var(--lightningcss-dark,#ffffff14),0 10px 28px var(--lightningcss-light,#0f172a14)var(--lightningcss-dark,#0000002e)}:is(.filter-control select):hover{border-color:var(--accent)}.filter-control select:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px #ff7a0033}.filter-control select option{color:var(--text);background:var(--lightningcss-light,#fff)var(--lightningcss-dark,#0c0e14eb);border-radius:10px}.filter-control select option:checked{background:var(--accent);color:var(--accent-contrast)}.filter-control.grow{flex:1}.filters{margin-bottom:12px}:is(.theme-toggle,.pill-button,.project-preview,.project-chip,.chip):hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}.chip:hover{box-shadow:0 8px 24px var(--lightningcss-light,#0f172a1f)var(--lightningcss-dark,#00000040)}.project-chip:hover{box-shadow:0 8px 20px var(--lightningcss-light,#0f172a14)var(--lightningcss-dark,#0000001f)}.error{color:var(--error);margin:0}@media (min-width:960px){.app-shell{padding:48px 48px 96px}}
+</style>
   </head>
   <body>
-    <div id="root"></div>
+    <div class="app-shell">
+      <div class="bg-texture"></div>
+      <div class="content">
+        <div class="top-bar">
+          <button class="brand" type="button" id="home-link">Puhi8 - Personal Site</button>
+          <button class="theme-toggle" type="button" id="theme-toggle">Light mode</button>
+        </div>
+
+        <section class="hero-card card">
+          <div class="identity">
+            <div class="avatar-wrap">
+              <img src="/me/profile.avif" alt="Puhi8 profile" class="profile-photo" fetchpriority="high" />
+              <div class="glow"></div>
+            </div>
+            <div>
+              <p class="eyebrow">Hello, it is I</p>
+              <h1>Puhi8</h1>
+              <p class="lede">Discovering as much as possible about computers and other things while I'm still alive.</p>
+              <div class="connections" id="connections"></div>
+            </div>
+          </div>
+          <div class="badges" id="badges"></div>
+        </section>
+
+        <section class="grid" id="home-page">
+          <div class="card">
+            <div class="section-header">
+              <div>
+                <p class="eyebrow">Capabilities</p>
+                <h2>Tools I use</h2>
+              </div>
+            </div>
+            <div class="skill-grid" id="skills"></div>
+          </div>
+
+          <div class="card">
+            <div class="section-header">
+              <div>
+                <p class="eyebrow">Showcase</p>
+                <h2>Featured Projects</h2>
+              </div>
+              <div class="actions">
+                <button class="pill-button" type="button" id="all-projects">All projects</button>
+              </div>
+            </div>
+            <p class="muted" id="featured-status">Loading projects...</p>
+            <div class="project-grid" id="featured"></div>
+          </div>
+        </section>
+
+        <section class="card" id="projects-page" hidden>
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">All work</p>
+              <h2>Projects (<span id="project-count">0</span>)</h2>
+            </div>
+            <div class="actions">
+              <button class="pill-button" type="button" id="back-home">Back home</button>
+            </div>
+          </div>
+          <div class="filters">
+            <label class="filter-control">
+              <span>Category</span>
+              <select id="category"></select>
+            </label>
+            <label class="filter-control grow">
+              <span>Search</span>
+              <input type="text" placeholder="Name or description" id="search" />
+            </label>
+          </div>
+          <p class="muted" id="projects-status">Loading projects...</p>
+          <div class="project-grid" id="projects"></div>
+        </section>
+      </div>
+    </div>
   </body>
 </html>
