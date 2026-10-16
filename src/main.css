@@ -1,3 +1,59 @@
+:root {
+  font-family: "Space Grotesk", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: dark;
+  --accent: #ff7a00;
+  --accent-strong: #ffb169;
+  --bg: light-dark(#f7f7fb, #0d111a);
+  --bg-2: light-dark(#ffffff, #12182a);
+  --surface: light-dark(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.04));
+  --surface-soft: light-dark(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.02));
+  --surface-soft-strong: light-dark(rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.04));
+  --text: light-dark(#0f172a, #f8fafc);
+  --muted: light-dark(#475569, #cbd5e1);
+  --border: light-dark(rgba(15, 23, 42, 0.12), rgba(255, 255, 255, 0.08));
+  --accent-contrast: light-dark(#1f1300, #0c0c10);
+  --error: light-dark(#b93815, #ff9b73);
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 15% 20%, rgba(255, 122, 0, 0.05), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(255, 122, 0, 0.08), transparent 30%),
+    linear-gradient(120deg, var(--bg), var(--bg-2));
+  color: var(--text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
 .app-shell {
   position: relative;
   min-height: 100vh;
@@ -13,7 +69,6 @@
     radial-gradient(ellipse at 85% 25%, light-dark(rgba(255, 177, 105, 0.18), rgba(141, 103, 33, 0.2)), transparent 35%),
     radial-gradient(ellipse at 40% 80%, light-dark(rgba(148, 163, 184, 0.12), rgba(94, 64, 9, 0.12)), transparent 40%),
     light-dark(#e7e7e7, #0c0c10);
-  filter: blur(8px);
   opacity: 0.9;
   pointer-events: none;
   z-index: 0;
@@ -91,7 +146,7 @@
   border-radius: 14px;
 }
 
-:is(.brand, .eyebrow, .lede, .project-copy, .muted, .filter-control span, .range-value, .project-chip, .pill.ghost) {
+:is(.brand, .eyebrow, .lede, .project-copy, .muted, .filter-control span, .project-chip) {
   color: var(--muted);
 }
 
@@ -117,7 +172,6 @@
   border-radius: 20px;
   padding: 24px;
   box-shadow: 0 18px 60px light-dark(rgba(15, 23, 42, 0.12), rgba(0, 0, 0, 0.35));
-  backdrop-filter: blur(12px);
 }
 
 .hero-card {
@@ -181,7 +235,6 @@ h3 {
 
 .lede {
   margin: 0 0 12px;
-  max-width: 640px;
 }
 
 .chip {
@@ -214,10 +267,6 @@ h3 {
   border: none;
 }
 
-.section-header .pill {
-  white-space: nowrap;
-}
-
 .pill-button {
   background: light-dark(rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.03));
   transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
@@ -238,7 +287,7 @@ h3 {
 }
 
 :is(.theme-toggle, .pill-button, .pill.outline),
-.filter-control :is(select, input[type='text'], input[type='range']) {
+.filter-control :is(select, input[type='text']) {
   border: 1px solid var(--border);
   color: var(--text);
 }
@@ -311,11 +360,27 @@ h3 {
 }
 
 .details-outer {
-  overflow: hidden;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
   transition:
-    max-height 320ms ease,
+    grid-template-rows 320ms ease,
     opacity 220ms ease,
     margin-top 220ms ease;
+}
+
+.details-outer>.project-copy {
+  overflow: hidden;
+}
+
+.details-outer>.project-copy>:last-child {
+  margin-bottom: 0;
+}
+
+.project-card.open .details-outer {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 8px;
 }
 
 .project-preview,
@@ -333,7 +398,7 @@ h3 {
   font-size: 0.85rem;
 }
 
-.filter-control :is(select, input[type='text'], input[type='range']) {
+.filter-control :is(select, input[type='text']) {
   border-radius: 10px;
   padding: 8px 10px;
   background: var(--surface);
@@ -382,14 +447,6 @@ h3 {
   color: var(--accent-contrast);
 }
 
-.filter-control input[type='range'] {
-  padding: 0;
-}
-
-.range-value {
-  font-size: 0.9rem;
-}
-
 .filter-control.grow {
   flex: 1;
 }
@@ -410,10 +467,6 @@ h3 {
 
 :is(.project-chip):hover {
   box-shadow: 0 8px 20px light-dark(rgba(15, 23, 42, 0.08), rgba(0, 0, 0, 0.12));
-}
-
-.pill.ghost {
-  background: light-dark(rgba(15, 23, 42, 0.06), rgba(255, 255, 255, 0.06));
 }
 
 .error {

@@ -2,12 +2,86 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/profile.png" />
+    <link rel="icon" type="image/webp" href="/profile-icon.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>It is I. Puhi8</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div class="app-shell">
+      <div class="bg-texture"></div>
+      <div class="content">
+        <div class="top-bar">
+          <button class="brand" type="button" id="home-link">Puhi8 - Personal Site</button>
+          <button class="theme-toggle" type="button" id="theme-toggle">Light mode</button>
+        </div>
+
+        <section class="hero-card card">
+          <div class="identity">
+            <div class="avatar-wrap">
+              <img src="/profile.avif" alt="Puhi8 profile" class="profile-photo" fetchpriority="high" />
+              <div class="glow"></div>
+            </div>
+            <div>
+              <p class="eyebrow">Hello, it is I</p>
+              <h1>Puhi8</h1>
+              <p class="lede">Discovering as much as possible about computers and other things while I'm still alive.</p>
+              <div class="connections" id="connections"></div>
+            </div>
+          </div>
+          <div class="badges" id="badges"></div>
+        </section>
+
+        <section class="grid" id="home-page">
+          <div class="card">
+            <div class="section-header">
+              <div>
+                <p class="eyebrow">Capabilities</p>
+                <h2>Tools I use</h2>
+              </div>
+            </div>
+            <div class="skill-grid" id="skills"></div>
+          </div>
+
+          <div class="card">
+            <div class="section-header">
+              <div>
+                <p class="eyebrow">Showcase</p>
+                <h2>Featured Projects</h2>
+              </div>
+              <div class="actions">
+                <button class="pill-button" type="button" id="all-projects">All projects</button>
+              </div>
+            </div>
+            <p class="muted" id="featured-status">Loading projects...</p>
+            <div class="project-grid" id="featured"></div>
+          </div>
+        </section>
+
+        <section class="card" id="projects-page" hidden>
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">All work</p>
+              <h2>Projects (<span id="project-count">0</span>)</h2>
+            </div>
+            <div class="actions">
+              <button class="pill-button" type="button" id="back-home">Back home</button>
+            </div>
+          </div>
+          <div class="filters">
+            <label class="filter-control">
+              <span>Category</span>
+              <select id="category"></select>
+            </label>
+            <label class="filter-control grow">
+              <span>Search</span>
+              <input type="text" placeholder="Name or description" id="search" />
+            </label>
+          </div>
+          <p class="muted" id="projects-status">Loading projects...</p>
+          <div class="project-grid" id="projects"></div>
+        </section>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

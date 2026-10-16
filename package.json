@@ -4,29 +4,15 @@
   "version": "1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npm run img && vite",
     "build": "npm run img && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "deploy": "npm run build && gh-pages -d dist -r https://github.com/Puhi8/me",
-    "img": "bash ./scripts/copy-img.sh"
-  },
-  "dependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-markdown": "^10.1.0"
+    "img": "node scripts/copy-img.js"
   },
   "devDependencies": {
-    "@types/react": "^19.2.5",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "globals": "^16.5.0",
-    "gh-pages": "^6.3.0",
-    "typescript": "^5.8.3",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9.3",
     "vite": "npm:rolldown-vite@7.2.5"
-  },
-  "overrides": {
-    "vite": "npm:rolldown-vite@7.2.5"
-  },
-  "homepage": "https://Puhi8.github.io/me"
+  }
 }

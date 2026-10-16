@@ -14,7 +14,7 @@ dist-ssr
 *.local
 
 public/img
-public/profile.png
+public/profile*
 
 test.md
 # Editor directories and files
